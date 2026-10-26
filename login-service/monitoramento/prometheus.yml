@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'login-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      # a aplicacao roda no Windows (fora do Docker): host.docker.internal aponta para ele
+      - targets: ['host.docker.internal:8080']
